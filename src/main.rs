@@ -15,7 +15,7 @@ fn readline() -> String {
 
 fn main() {
     loop {
-        print!("rush {} | ", env::current_dir().unwrap().display());
+        print!("rush {}: {} | ", env::var("USER").unwrap(), env::current_dir().unwrap().display());
         io::stdout().flush().expect("unable to flush");
         let input = readline();
         let command: &str = input.substring(0, input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap_or(input.len() - 1));
