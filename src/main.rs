@@ -15,14 +15,18 @@ fn readline() -> String {
 
 
 fn main() {
-    let mut dir: String = env::var("HOME").unwrap();
     loop {
-        print!("rush {} | ", &dir);
+        print!("rush {} | ", env::current_dir().unwrap().display());
         io::stdout().flush().expect("unable to flush");
         let input = readline();
-        let command: &str = input.substring(0, input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap_or(input.len() - 1) + 1);
-        let args: &str = input.substring(input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap() + 1, input.len() - 1);
-        println!("{args}");
-        exec::main(&command, &args, dir.clone())
+        let command: &str = input.substring(0, input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap_or(input.len() - 1));
+        let mut args: &str;
+        if input.len() > command.len() + 1 {
+            args = input.substring(input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap() + 1, input.len() - 1);
+            println!("{args}")
+        } else {
+            args = " "
+        }
+        exec::main(&command, &args)
     }
 }
