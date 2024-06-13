@@ -13,7 +13,6 @@ fn readline() -> String {
     input
 }
 
-
 fn main() {
     loop {
         print!("rush {} | ", env::current_dir().unwrap().display());
