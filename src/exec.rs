@@ -7,4 +7,3 @@ pub fn main(command:&str, args:&str, dir: String) {
         println!("command '{command}' does not exist")
     }
 }
-+
