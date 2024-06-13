@@ -20,10 +20,9 @@ fn main() {
         io::stdout().flush().expect("unable to flush");
         let input = readline();
         let command: &str = input.substring(0, input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap_or(input.len() - 1));
-        let mut args: &str;
+        let args: &str;
         if input.len() > command.len() + 1 {
             args = input.substring(input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap() + 1, input.len() - 1);
-            println!("{args}")
         } else {
             args = " "
         }
