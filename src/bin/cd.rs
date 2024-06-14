@@ -1,5 +1,6 @@
 use std::env;
 use std::path::{Path, PathBuf};
+use std::process::exit;
 
 
 pub fn cd(args:&str) {
@@ -16,5 +17,5 @@ pub fn cd(args:&str) {
 }
 
 fn main() {
-
+    exit(0)
 }
