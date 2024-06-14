@@ -2,7 +2,7 @@
 
 pub fn main(command:&str, args:&str) {
     if command == "cd" {
-        cd::main(args);
+        cd::cd(args);
     } else if command == "cat" {
 
 
