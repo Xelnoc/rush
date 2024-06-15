@@ -23,7 +23,7 @@ fn main() {
         if input.len() > command.len() + 1 {
             args = input.substring(input.as_str().chars().position(|x: char| x.to_string() == " ").unwrap() + 1, input.len() - 1);
         } else {
-            args = " "
+            args = ""
         }
         exec::main(&command, &args)
     }

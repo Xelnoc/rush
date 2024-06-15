@@ -9,6 +9,8 @@ pub fn cd(args:&str) {
         let path = path.parent()
             .unwrap_or(&path);
         env::set_current_dir(Path::new(path)).unwrap();
+    } else if args == "" {
+        env::set_current_dir(env::home_dir().unwrap()).unwrap_or(());
     } else {
         let mut path = PathBuf::from(&env::current_dir().unwrap());
         path.push(args);
